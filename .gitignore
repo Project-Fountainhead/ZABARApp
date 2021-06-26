@@ -1,0 +1,6 @@
+
+*.meta
+.vsconfig
+
+Library
+Temp
