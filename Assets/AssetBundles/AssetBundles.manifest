@@ -1,7 +1,0 @@
-ManifestFileVersion: 0
-CRC: 391002127
-AssetBundleManifest:
-  AssetBundleInfos:
-    Info_0:
-      Name: lattice
-      Dependencies: {}
