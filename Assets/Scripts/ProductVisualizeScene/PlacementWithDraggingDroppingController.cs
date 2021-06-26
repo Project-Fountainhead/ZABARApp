@@ -21,11 +21,11 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
         7) Fetch and Initiate the 3d model      sole responsibility
         */
 
-    [SerializeField]
-    private GameObject welcomePanel;
+    //[SerializeField]
+    //private GameObject welcomePanel;
 
-    [SerializeField]
-    private Button dismissButton;    
+    //[SerializeField]
+    //private Button dismissButton;    
 
     //[SerializeField]
     private GameObject placedPrefab;
@@ -50,7 +50,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
 
         //ProductManager.Instance.callbackModelEventHandler += new ProductManager.DelModelEventHandler(OnRequestComplete);
 
-         dismissButton.onClick.AddListener(Dismiss);                     
+         //dismissButton.onClick.AddListener(Dismiss);                     
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
@@ -81,13 +81,13 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     //    //debugText.text += "prefab loaded!";
     //}
 
-    private void Dismiss() => welcomePanel.SetActive(false);    
+    //private void Dismiss() => welcomePanel.SetActive(false);    
 
     void Update()
     {
         // do not capture events unless the welcome panel is hidden
-        if (welcomePanel.activeSelf)
-            return;
+        //if (welcomePanel.activeSelf)
+        //    return;
 
         StartCoroutine(IsModelReady());
 
@@ -135,6 +135,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
         placedObject = Instantiate(placedPrefab, plcIndicator.transform.position, plcIndicator.transform.rotation);
         placedObject.AddComponent<MoveModel>();
         placedObject.AddComponent<RotateModel>();
+        //placedObject.transform.SetParent(placementIndicator.transform);
         plcIndicator.DisableIndicator();
         plcIndicator.enabled = false;        
     }

@@ -5,18 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
-    guid: 2506cb88888d595499bd4cb49c8fad3b
-  - enabled: 1
-    path: Assets/Scenes/CategoriesScene.unity
-    guid: 411e67f638a324244b22cf640de7b1a9
+    guid: fdb833615e46c824c9554c302b055455
   - enabled: 1
     path: Assets/Scenes/HomeFurnitureListScene.unity
-    guid: 115269cccb88efd43ba1aef28866c1a2
+    guid: b025507a5024e5140bbe515264372f18
   - enabled: 1
     path: Assets/Scenes/ProductVisualize.unity
-    guid: d2f773e4b683d6640a0fe3767bf864d8
+    guid: 76d98c29dd37c4e4399f8300a3e459ea
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2ee9243800378154a93de985a4b2da41, type: 2}
-    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: fd17d6596d8ced34ea44fbc87cd77482, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 318bc1f4783ea91468c10b1c324d62c9, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 876f5689c0a739e4991fab820d10d885, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3bc8db204acdd214ba8009f934e03326, type: 2}
