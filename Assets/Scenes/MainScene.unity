@@ -1822,6 +1822,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: btnFeaturedProducts
       objectReference: {fileID: 0}
+    - target: {fileID: 1133644407821437668, guid: c1d26a222606bc04eb87bed19e855183, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7749346977082823265, guid: 5eebe94bc0303824d9e662af76311a40, type: 3}
+    - target: {fileID: 1133644407821437668, guid: c1d26a222606bc04eb87bed19e855183, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadHomeFurniMenuScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d26a222606bc04eb87bed19e855183, type: 3}
 --- !u!224 &2014003392 stripped
