@@ -60,10 +60,6 @@
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ProgressBar.cs" />
-    <Compile Include="Assets\Scripts\UI\Scripts\ARUXAnimationManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Scripts\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Scripts\ARUXReasonsManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Scripts\LightEstimation.cs" />
     <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
     <Compile Include="Assets\Scripts\Core\AWSResponse.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\RestProductDetails.cs" />
@@ -80,7 +76,6 @@
     <Compile Include="Assets\Scripts\Core\RestWebClient.cs" />
     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
-    <Compile Include="Assets\Scripts\UI\Scripts\PlaceObjectsOnPlane.cs" />
     <Compile Include="Assets\UI\Scripts\LightEstimation.cs" />
     <Compile Include="Assets\UI\Scripts\ARUXReasonsManager.cs" />
     <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
@@ -93,12 +88,10 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\Scripts\UI\Shaders\FeatheredPlaneShader.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\Scripts\UI\Shaders\MobileARShadow.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
