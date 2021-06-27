@@ -13,6 +13,9 @@ public class CreateGUI : MonoBehaviour
     [SerializeField]
     private RectTransform ParentPanel;
 
+    [SerializeField]
+    GameObject LoadingSymbol;
+
     bool IsGUIConstructed = false;
 
     // Use this for initialization
@@ -24,32 +27,48 @@ public class CreateGUI : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(CreateSceneGUI());
+        if (!IsGUIConstructed)
+        {
+            StartCoroutine(CreateSceneGUI());
+        }
     }
 
     IEnumerator CreateSceneGUI()
     {
         yield return null;
 
-        while (!IsGUIConstructed && IsProductsDetailReady())
+        //while (!IsGUIConstructed && IsProductsDetailReady())
+        //{
+        //    //StartCoroutine(CreateSceneGUI());
+        //    CreateGUIElements();
+
+        //    yield return null;
+        //}        
+
+        if (IsProductsDetailReady())
         {
             //StartCoroutine(CreateSceneGUI());
             CreateGUIElements();
 
-            yield return null;
-        }        
+            LoadingSymbol.SetActive(false);           
+        }
+
+        yield return null;
     }
 
     bool IsProductsDetailReady()
     {
-        Dictionary<int, ProdDetails> ProductCache = CacheManager.Instance.GetProductCache();
+        //Dictionary<int, ProdDetails> ProductCache = CacheManager.Instance.GetProductCache();
 
-        if (ProductCache.Count == 0)
-        {
-            return false;
-        }
+        //if (ProductCache.Count == 0)
+        //{
+        //    return false;
+        //}
 
-        return true;
+        //return true;
+
+        bool productDetailsCached = CacheManager.Instance.GetNumberOfCachedProducts() != 0;
+        return productDetailsCached;
 
         //bool ProductsDetailReady = true;
 

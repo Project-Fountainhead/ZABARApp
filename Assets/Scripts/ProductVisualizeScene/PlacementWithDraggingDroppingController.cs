@@ -33,6 +33,9 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     //[SerializeField]
     private GameObject placedObject;
 
+    [SerializeField]
+    private GameObject placementIndicator;
+
     private PlacementIndicator plcIndicator;   
 
     [SerializeField]

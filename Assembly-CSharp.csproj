@@ -55,28 +55,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ProductDetails\ObjectHandler.cs" />
-     <Compile Include="Assets\Scripts\Core\ProdDetails.cs" />
-     <Compile Include="Assets\Scripts\ProductDetails\RestProductDetails.cs" />
-     <Compile Include="Assets\Scripts\Core\AWSResponse.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\RotateModel.cs" />
-     <Compile Include="Assets\Scripts\ProductDetails\CachedProductDetails.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\ButtonHandler.cs" />
-     <Compile Include="Assets\Scripts\Core\Vector2Extension.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
-     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
-     <Compile Include="Assets\Scripts\ProductManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\CacheProducts.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\MoveModel.cs" />
-     <Compile Include="Assets\Scripts\Core\RestWebClient.cs" />
      <Compile Include="Assets\Scripts\CreateGUI.cs" />
-     <Compile Include="Assets\Scripts\Core\CacheManager.cs" />
-     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementWithDraggingDroppingController.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\ProgressBar.cs" />
+     <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
+     <Compile Include="Assets\Scripts\Core\AWSResponse.cs" />
+     <Compile Include="Assets\Scripts\ProductDetails\RestProductDetails.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\RotateModel.cs" />
+     <Compile Include="Assets\Scripts\ProductManager.cs" />
+     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\MoveModel.cs" />
      <Compile Include="Assets\Scripts\ProductDetails\IProductDetailsManager.cs" />
      <Compile Include="Assets\Scripts\Core\Singleton.cs" />
-     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementWithDraggingDroppingController.cs" />
+     <Compile Include="Assets\Scripts\Core\CacheManager.cs" />
+     <Compile Include="Assets\Scripts\Core\ProdDetails.cs" />
+     <Compile Include="Assets\Scripts\ProductDetails\ObjectHandler.cs" />
+     <Compile Include="Assets\Scripts\ProductDetails\CachedProductDetails.cs" />
+     <Compile Include="Assets\Scripts\Core\Vector2Extension.cs" />
+     <Compile Include="Assets\Scripts\Core\RestWebClient.cs" />
+     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
+     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
