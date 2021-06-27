@@ -7,5 +7,6 @@ Temp
 obj
 obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
 obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+obj/Debug
 .vs
 Builds
