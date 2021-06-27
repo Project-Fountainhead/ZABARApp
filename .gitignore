@@ -4,3 +4,8 @@
 
 Library
 Temp
+obj
+obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+.vs
+Builds
