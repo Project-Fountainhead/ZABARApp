@@ -81,8 +81,14 @@
     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
     <Compile Include="Assets\Scripts\UI\Scripts\PlaceObjectsOnPlane.cs" />
+    <Compile Include="Assets\UI\Scripts\LightEstimation.cs" />
+    <Compile Include="Assets\UI\Scripts\ARUXReasonsManager.cs" />
+    <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
+    <Compile Include="Assets\UI\Scripts\UIManager.cs" />
+    <Compile Include="Assets\UI\Scripts\PlaceObjectsOnPlane.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -106,6 +112,7 @@
      <None Include="Assets\beffio\UI - BUILDER\Source Files\Fonts\OpenSans-Familiy\OpenSansLic.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\UI\Shaders\MobileARShadow.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
