@@ -53,36 +53,37 @@
     <UnityVersion>2020.1.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
-    <Compile Include="Assets\Scripts\MainScene\CacheProducts.cs" />
-    <Compile Include="Assets\Scripts\CreateGUI.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementWithDraggingDroppingController.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\ProgressBar.cs" />
-    <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
     <Compile Include="Assets\Scripts\Core\AWSResponse.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\RestProductDetails.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementWithDraggingDroppingController.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\RotateModel.cs" />
     <Compile Include="Assets\Scripts\ProductManager.cs" />
+    <Compile Include="Assets\Scripts\MainScene\CacheProducts.cs" />
+    <Compile Include="Assets\Scripts\CreateGUI.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\MoveModel.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\IProductDetailsManager.cs" />
+    <Compile Include="Assets\UI\Scripts\LightEstimation.cs" />
+    <Compile Include="Assets\UI\Scripts\ARUXReasonsManager.cs" />
     <Compile Include="Assets\Scripts\Core\Singleton.cs" />
+    <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
     <Compile Include="Assets\Scripts\Core\CacheManager.cs" />
     <Compile Include="Assets\Scripts\Core\ProdDetails.cs" />
+    <Compile Include="Assets\UI\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\ObjectHandler.cs" />
+    <Compile Include="Assets\UI\Scripts\PlaceObjectsOnPlane.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\CachedProductDetails.cs" />
     <Compile Include="Assets\Scripts\Core\Vector2Extension.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
     <Compile Include="Assets\Scripts\Core\RestWebClient.cs" />
     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
-    <Compile Include="Assets\UI\Scripts\LightEstimation.cs" />
-    <Compile Include="Assets\UI\Scripts\ARUXReasonsManager.cs" />
-    <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
-    <Compile Include="Assets\UI\Scripts\UIManager.cs" />
-    <Compile Include="Assets\UI\Scripts\PlaceObjectsOnPlane.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Shaders\URP AR Shadow Receiver.shader" />
      <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
@@ -674,6 +675,9 @@
     <Reference Include="Unity.XR.ARFoundation">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARFoundation.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -713,8 +717,35 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

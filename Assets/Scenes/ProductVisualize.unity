@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 7301038599492194177, guid: ec4dbd5041f131341b84689d1ec53127, type: 3}
+  m_PlanePrefab: {fileID: 7301038599492194177, guid: 49ff691d5ef93bd418fbf1351f5e545f, type: 3}
   m_DetectionMode: 1
 --- !u!114 &550762038
 MonoBehaviour:
@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa22e2b2b2fdebb489635d38f170cccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placedPrefab: {fileID: 2709612943648913951, guid: 066f308730588034abe90174406cc802, type: 3}
   placementIndicator: {fileID: 3711202592677390331, guid: 7c4c01d54a78acf4a8178a8055273660, type: 3}
   debugText: {fileID: 157509935}
 --- !u!1 &672550311
@@ -2530,7 +2531,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
