@@ -2530,7 +2530,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
@@ -2596,12 +2596,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911392799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaba9427dfc88cd408e73b74acede518, type: 3}
+  m_Script: {fileID: 11500000, guid: d4bb3f6619f5bc84db5497baa6da8979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CameraManager: {fileID: 531878740}
   m_BrightnessMod: 3
-  m_Light: {fileID: 0}
 --- !u!1 &1926714025
 GameObject:
   m_ObjectHideFlags: 0
