@@ -105,5 +105,11 @@ namespace Assets.Scripts.Core
             ProdDetails prodDetails = productCache[ProductID];
             prodDetails.model = gameObject;
         }
+
+        public GameObject GetProductModel(int ProductID)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            return prodDetails.model;
+        }
     }
 }

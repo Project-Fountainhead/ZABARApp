@@ -27,7 +27,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     //[SerializeField]
     //private Button dismissButton;    
 
-    //[SerializeField]
+    [SerializeField]
     private GameObject placedPrefab;
 
     //[SerializeField]
@@ -36,20 +36,33 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     [SerializeField]
     private GameObject placementIndicator;
 
-    private PlacementIndicator plcIndicator;   
+    //private PlacementIndicator plcIndicator;  
+
+    [SerializeField]
+    private ARRaycastManager rayManager;
+
+    [SerializeField]
+    private Camera arCamera;
 
     [SerializeField]
     private Text debugText;
+        
+    int ModelID = 0;
+    private Vector2 touchPosition = default;
 
-    bool IsModelReceived = false;
+    private bool onTouchHold = false;
+
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     void Awake()
     {
-        ProductManager.Instance.GetAssetBundle(ProductManager.Instance.ModelProductID);
+        ModelID = ProductManager.Instance.ModelProductID;
 
-        plcIndicator = FindObjectOfType<PlacementIndicator>();
+        ProductManager.Instance.GetAssetBundle(ModelID);
 
-        placedObject = GameObject.Find("GameObject");
+        //plcIndicator = FindObjectOfType<PlacementIndicator>();
+
+        //placedObject = GameObject.Find("GameObject");
 
         //ProductManager.Instance.callbackModelEventHandler += new ProductManager.DelModelEventHandler(OnRequestComplete);
 
@@ -61,8 +74,8 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     //void Start()
     //{
     //    //ProductManager.Instance.GetAssetBundle(ButtonHandler.ProductID);
-        
-    //}
+    //    //StartCoroutine(VisualizeModel());
+    //}    
 
     //private void OnDestroy()
     //{
@@ -92,54 +105,147 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
         //if (welcomePanel.activeSelf)
         //    return;
 
-        StartCoroutine(IsModelReady());
+        //StartCoroutine(IsModelReady());
 
         //if (ProductManager.Instance.ProductModel == null)
         //{
         //    return;
         //}
 
-        //placedPrefab = ProductManager.Instance.ProductModel;
+        //placedPrefab = ProductManager.Instance.ProductModel;         
 
-        Touch touch;
-
-        if (Input.touchCount > 0)
+        if (!CacheManager.Instance.IsModelCached(ModelID) && Input.touchCount == 0)
         {
-            touch = Input.GetTouch(0);
-
-            if (placedPrefab != null && plcIndicator.IndicatorHitPlane && touch.phase == TouchPhase.Ended)
-            {
-                InstantiateModel();
-
-                //Once the model has been instantiated, then disable the component as it is no longer required
-                this.enabled = false;
-            }            
-        }        
-    }
-
-    IEnumerator IsModelReady()
-    {
-        if (!IsModelReceived)
+            CentreMovePlmtIndicator();
+        }
+        else
         {
-            ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(ProductManager.Instance.ModelProductID);
+            //placedPrefab = CacheManager.Instance.GetProductModel(ModelID);
 
-            while (prodDetails.model == null)
+            placementIndicator.SetActive(false);
+
+            if (Input.touchCount > 0)
             {
-                yield return null;
+                Touch touch = Input.GetTouch(0);
+
+                touchPosition = touch.position;
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Ray ray = arCamera.ScreenPointToRay(touch.position);
+                    RaycastHit hitObject;
+                    if (Physics.Raycast(ray, out hitObject))
+                    {
+                        //PlacementObject placementObject = hitObject.transform.GetComponent<PlacementObject>();
+                        //if (placementObject != null)
+                        //{
+                        //    debugText.text = "PLACEMENTOBJECTFOUND";
+                        //    onTouchHold = true;
+                        //    //placementObject.SetOverlayText(isLocked ? "AR Object Locked" : "AR Object Unlocked");
+                        //}
+                        //else
+                        //{
+                        //    debugText.text = "PLACEMENTOBJECTNOTFOUND " + hitObject.transform.gameObject.name;
+                        //}
+                        debugText.text = hitObject.transform.gameObject.name;
+                        if (!hitObject.transform.gameObject.name.StartsWith("AR", StringComparison.CurrentCulture))
+                        {
+                            onTouchHold = true;
+                        }
+                    }
+                }
+
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    onTouchHold = false;
+                }
             }
-            
-            placedPrefab = prodDetails.model;
-            IsModelReceived = true;
-        }       
+
+            if (rayManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+            {
+                Pose hitPose = hits[0].pose;
+
+                if (placedObject == null)
+                {
+                    //if (defaultRotation > 0)
+                    //{
+                    //    placedObject = Instantiate(placedPrefab, hitPose.position, Quaternion.identity);
+                    //    placedObject.transform.Rotate(Vector3.up, defaultRotation);
+                    //}
+                    //else
+                    //{
+                        placedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+                        placedObject.AddComponent<RotateModel>();
+                    //}
+                }
+                else
+                {
+                    if (onTouchHold)
+                    {
+                        placedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                        //if (defaultRotation == 0)
+                        //{
+                        //    placedObject.transform.rotation = hitPose.rotation;
+                        //}
+                    }
+                }
+            }
+        }           
     }
 
-    void InstantiateModel()
-    {       
-        placedObject = Instantiate(placedPrefab, plcIndicator.transform.position, plcIndicator.transform.rotation);
-        placedObject.AddComponent<MoveModel>();
-        placedObject.AddComponent<RotateModel>();
-        //placedObject.transform.SetParent(placementIndicator.transform);
-        plcIndicator.DisableIndicator();
-        plcIndicator.enabled = false;        
+    private void CentreMovePlmtIndicator()
+    {
+        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+        rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+
+        // if we hit an AR plane surface, update the position and rotation
+        if (hits.Count > 0)
+        {
+            placementIndicator.transform.SetPositionAndRotation(hits[0].pose.position, hits[0].pose.rotation);
+        }
     }
+
+    //IEnumerator IsModelReady()
+    //{
+    //    if (!IsModelReceived)
+    //    {
+    //        ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(ProductManager.Instance.ModelProductID);
+
+    //        while (prodDetails.model == null)
+    //        {
+    //            yield return null;
+    //        }
+
+    //        placedPrefab = prodDetails.model;
+    //        IsModelReceived = true;
+    //    }       
+    //}
+
+    //bool IsModelReady()
+    //{
+    //    ProdDetails prodDetails = GetProductDetails(ProductManager.Instance.ModelProductID);
+    //    return prodDetails.model != null;
+    //    if (!IsModelReceived)
+    //    {
+
+
+    //        while ()
+    //        {
+    //            yield return null;
+    //        }
+
+    //        placedPrefab = prodDetails.model;
+    //        IsModelReceived = true;
+    //    }
+    //}
+
+    //void InstantiateModel()
+    //{       
+    //    placedObject = Instantiate(placedPrefab, placementIndicator.transform.position, placementIndicator.transform.rotation);
+    //    //placedObject.AddComponent<MoveModel>();
+    //    placedObject.AddComponent<RotateModel>();
+    //    //placedObject.transform.SetParent(placementIndicator.transform);
+    //    //plcIndicator.DisableIndicator();
+    //    //plcIndicator.enabled = false;        
+    //}
 } 
