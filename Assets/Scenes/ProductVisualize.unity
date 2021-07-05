@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 7301038599492194177, guid: 49ff691d5ef93bd418fbf1351f5e545f, type: 3}
+  m_PlanePrefab: {fileID: 7301038599492194177, guid: ec4dbd5041f131341b84689d1ec53127, type: 3}
   m_DetectionMode: 1
 --- !u!114 &550762038
 MonoBehaviour:
@@ -637,8 +637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa22e2b2b2fdebb489635d38f170cccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 2709612943648913951, guid: 066f308730588034abe90174406cc802, type: 3}
-  placementIndicator: {fileID: 3711202592677390331, guid: 7c4c01d54a78acf4a8178a8055273660, type: 3}
+  placementIndicatorPrefab: {fileID: 3711202592677390331, guid: 7c4c01d54a78acf4a8178a8055273660, type: 3}
+  rayManager: {fileID: 550762034}
+  arCamera: {fileID: 531878738}
   debugText: {fileID: 157509935}
 --- !u!1 &672550311
 GameObject:
@@ -1833,27 +1834,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533689953}
-  - component: {fileID: 1533689952}
   m_Layer: 0
   m_Name: PlacementIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1533689952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533689951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ef71efbaaea59444baeb8e47e8bc903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Indicator: {fileID: 1653143708}
+  m_IsActive: 0
 --- !u!4 &1533689953
 Transform:
   m_ObjectHideFlags: 0
@@ -2144,11 +2131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613070202}
   m_CullTransparentMesh: 0
---- !u!1 &1653143708 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4434184017440288101, guid: bdab43cd4ee2d184db5358a23488a797, type: 3}
-  m_PrefabInstance: {fileID: 1282063308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673890551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2513,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
