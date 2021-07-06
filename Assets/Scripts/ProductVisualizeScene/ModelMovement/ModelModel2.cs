@@ -46,7 +46,9 @@ public class ModelModel2 : MonoBehaviour
             }
         }
 
-        if (rayManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+        bool isOverUI = touchPosition.IsPointOverUIObject();
+
+        if (!isOverUI && rayManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             Pose hitPose = hits[0].pose;
             

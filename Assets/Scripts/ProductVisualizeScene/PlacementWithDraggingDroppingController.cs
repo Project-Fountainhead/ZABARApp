@@ -65,7 +65,9 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                if (rayManager.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+                bool isOverUI = touch.position.IsPointOverUIObject();
+
+                if (!isOverUI && rayManager.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
                 {
                     Pose hitPose = hits[0].pose;
                     placedObject = Instantiate(placedPrefab, placementIndicator.transform.position, placementIndicator.transform.rotation);
