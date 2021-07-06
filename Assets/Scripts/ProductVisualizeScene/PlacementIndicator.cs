@@ -23,15 +23,15 @@ public class PlacementIndicator : MonoBehaviour
         // if we hit an AR plane surface, update the position and rotation
         if (hits.Count > 0)
         {
-            if (planeIndicator == null)
-            {
-                planeIndicator = Instantiate(plane, hits[0].pose.position, hits[0].pose.rotation);
-                planeIndicator.transform.SetParent(transform);
-            }
-            else
-            {
+            //if (planeIndicator == null)
+            //{
+            //    planeIndicator = Instantiate(plane, hits[0].pose.position, hits[0].pose.rotation);
+            //    planeIndicator.transform.SetParent(transform);
+            //}
+            //else
+            //{
                 transform.SetPositionAndRotation(hits[0].pose.position, hits[0].pose.rotation);
-            }
+            //}
         }
     }    
 }

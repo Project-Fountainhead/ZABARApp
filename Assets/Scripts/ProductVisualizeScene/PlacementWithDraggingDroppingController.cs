@@ -45,7 +45,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
 
     void Update()
     {
-        if (!CacheManager.Instance.IsModelCached(ModelID) && placedObject != null)
+        if (!CacheManager.Instance.IsModelCached(ModelID) || placedObject != null)
         {
             return;
         }
@@ -63,12 +63,12 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Began)
             {
                 if (rayManager.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
                 {
                     Pose hitPose = hits[0].pose;
-                    placedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+                    placedObject = Instantiate(placedPrefab, placementIndicator.transform.position, placementIndicator.transform.rotation);
                     ModelModel2 moveModel = placedObject.AddComponent<ModelModel2>();
                     moveModel.ARCamera = arCamera;
                     moveModel.RayManager = rayManager;

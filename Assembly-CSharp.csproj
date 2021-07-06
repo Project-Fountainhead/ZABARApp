@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{BA06373F-B161-601F-0C96-F33A5E2399F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -62,15 +63,14 @@
     <Compile Include="Assets\Scripts\ProductManager.cs" />
     <Compile Include="Assets\Scripts\MainScene\CacheProducts.cs" />
     <Compile Include="Assets\Scripts\CreateGUI.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\MoveModel.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\IProductDetailsManager.cs" />
     <Compile Include="Assets\UI\Scripts\LightEstimation.cs" />
     <Compile Include="Assets\UI\Scripts\ARUXReasonsManager.cs" />
     <Compile Include="Assets\Scripts\Core\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Core\PlacementObject.cs" />
     <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
     <Compile Include="Assets\Scripts\Core\CacheManager.cs" />
     <Compile Include="Assets\Scripts\Core\ProdDetails.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\ModelModel2.cs" />
     <Compile Include="Assets\UI\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\ObjectHandler.cs" />
@@ -82,35 +82,33 @@
     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
+    <Compile Include="Assets\Scripts\Core\PlacementObject.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Shaders\URP AR Shadow Receiver.shader" />
-     <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />
-     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\Scripts\CreateGUI - Copy.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\Scripts\ProductVisualizeScene\PlacementWithDraggingDroppingController - Copy.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\beffio\UI - BUILDER\Source Files\Fonts\OpenSans-Familiy\OpenSansLic.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\UI\Shaders\MobileARShadow.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\beffio\UI - BUILDER\Source Files\Fonts\OpenSans-Familiy\OpenSansLic.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\UI\Shaders\MobileARShadow.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.17f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
