@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 7301038599492194177, guid: 49ff691d5ef93bd418fbf1351f5e545f, type: 3}
+  m_PlanePrefab: {fileID: 7301038599492194177, guid: ec4dbd5041f131341b84689d1ec53127, type: 3}
   m_DetectionMode: 1
 --- !u!114 &550762038
 MonoBehaviour:
@@ -669,11 +669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa22e2b2b2fdebb489635d38f170cccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 7767200461507811606, guid: 7dce980853755144cbcad919a0fd63b8, type: 3}
   placementIndicator: {fileID: 1533689951}
   rayManager: {fileID: 550762034}
   arCamera: {fileID: 531878738}
-  debugText: {fileID: 157509935}
 --- !u!1 &672550311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533689953}
+  - component: {fileID: 1533689952}
   m_Layer: 0
   m_Name: PlacementIndicator
   m_TagString: Untagged
@@ -1874,6 +1873,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1533689952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533689951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef71efbaaea59444baeb8e47e8bc903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayManager: {fileID: 550762034}
+  plane: {fileID: 4434184017440288101, guid: 40f4ffd91a465854d8fdad7edaf2aa21, type: 3}
 --- !u!4 &1533689953
 Transform:
   m_ObjectHideFlags: 0
