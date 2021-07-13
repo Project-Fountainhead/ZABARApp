@@ -71,10 +71,10 @@
     <Compile Include="Assets\UI\Scripts\ARUXAnimationManager.cs" />
     <Compile Include="Assets\Scripts\Core\CacheManager.cs" />
     <Compile Include="Assets\Scripts\Core\ProdDetails.cs" />
+    <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\ModelModel2.cs" />
     <Compile Include="Assets\UI\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\LoadingSymManager.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\ObjectHandler.cs" />
-    <Compile Include="Assets\UI\Scripts\PlaceObjectsOnPlane.cs" />
     <Compile Include="Assets\Scripts\ProductDetails\CachedProductDetails.cs" />
     <Compile Include="Assets\Scripts\Core\Vector2Extension.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\PlacementIndicator.cs" />
@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\Core\ApplicationChrome.cs" />
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
-    <Compile Include="Assets\Scripts\ProductVisualizeScene\ModelMovement\ModelModel2.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />

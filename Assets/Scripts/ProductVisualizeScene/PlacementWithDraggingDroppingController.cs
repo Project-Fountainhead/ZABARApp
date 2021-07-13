@@ -14,6 +14,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     // This class is responsible for instantiate the 3D model (when it has been download)
     // on the position of Placement Indicator and then remove this indicator    
 
+    //[SerializeField]
     private GameObject placedPrefab;
 
     private GameObject placedObject;
@@ -33,6 +34,8 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     int ModelID = 0;
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    public static event Action onPlacedObject;
 
     void Awake()
     {
@@ -76,6 +79,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
                     moveModel.RayManager = rayManager;
                     placedObject.AddComponent<RotateModel>();
                     Destroy(placementIndicator);
+                    onPlacedObject?.Invoke();
                 }
             }
         }
