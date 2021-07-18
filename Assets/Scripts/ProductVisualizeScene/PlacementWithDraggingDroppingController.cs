@@ -18,6 +18,7 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     private GameObject placedPrefab;
 
     private GameObject placedObject;
+    public GameObject PlacedObject { get => placedObject; set => placedObject = value; }
 
     [SerializeField]
     private GameObject placementIndicator;

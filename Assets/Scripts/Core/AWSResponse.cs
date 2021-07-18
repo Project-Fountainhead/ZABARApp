@@ -30,6 +30,12 @@ public class AWSItems
     public string NameInBundle;
 
     public string Price;
+
+    public string Depth;
+
+    public string Height;
+
+    public string Width;
 }
 
 

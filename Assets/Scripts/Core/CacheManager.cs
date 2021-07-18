@@ -111,5 +111,11 @@ namespace Assets.Scripts.Core
             ProdDetails prodDetails = productCache[ProductID];
             return prodDetails.model;
         }
+
+        public ProductDimensions GetProductDimensions(int ProductID)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            return prodDetails.prodDimensions;
+        }
     }
 }
