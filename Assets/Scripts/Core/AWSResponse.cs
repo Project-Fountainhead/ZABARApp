@@ -30,6 +30,36 @@ public class AWSItems
     public string NameInBundle;
 
     public string Price;
+
+    public string Depth;
+
+    public string Height;
+
+    public string Width;
+}
+
+[Serializable]
+public class AWSProductDimensionResponse
+{
+    public AWSProductDimension[] Items;
+
+    public string Count;
+
+    public string ScannedCount;
+
+    public string ResponseMetadata;
+}
+
+[Serializable]
+public class AWSProductDimension
+{
+    public string ID;
+
+    public string Depth;
+
+    public string Height;
+
+    public string Width;
 }
 
 

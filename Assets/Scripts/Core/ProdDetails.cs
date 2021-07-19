@@ -25,7 +25,9 @@ namespace Assets.Scripts.Core
 
         public Texture2D ImageTexture;
 
-        public string Price;
+        public string Price;  
+        
+        public ProductDimensions prodDimensions;
 
         public ProdDetails(int ProductID)
         {
@@ -41,6 +43,8 @@ namespace Assets.Scripts.Core
             BundleURL = item.BundleURL;
             NameInBundle = item.NameInBundle;
             Price = item.Price;
+            //prodDimensions = new ProductDimensions(item.Depth, item.Height, item.Width);
+            prodDimensions = null;
         }
 
         public ProdDetails()
@@ -59,6 +63,47 @@ namespace Assets.Scripts.Core
             this.NameInBundle = prodDetails.NameInBundle;
             this.ImageTexture = prodDetails.ImageTexture;
             this.Price = prodDetails.Price;
+            this.prodDimensions = new ProductDimensions(prodDetails.prodDimensions);            
+        }
+
+        public void SetProductDimensions(ProductDimensions productDimensions)
+        {
+            this.prodDimensions = new ProductDimensions(productDimensions);
+        }
+
+        public ProductDimensions GetProductDimensions()
+        {
+            return prodDimensions;
+        }
+    }
+
+    public class ProductDimensions
+    {
+        public string Depth;
+
+        public string Height;
+
+        public string Width;
+
+        public ProductDimensions(string depth, string height, string width)
+        {
+            Depth = depth;
+            Height = height;
+            Width = width;
+        }
+
+        public ProductDimensions(ProductDimensions productDimensions)
+        {
+            Depth = productDimensions.Depth;
+            Height = productDimensions.Height;
+            Width = productDimensions.Width;
+        }
+
+        public ProductDimensions(AWSProductDimension awsProductDimension)
+        {
+            Depth = awsProductDimension.Depth;
+            Height = awsProductDimension.Height;
+            Width = awsProductDimension.Width;
         }
     }
 }

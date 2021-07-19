@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8546377148144947095, guid: 50d38746fbd2ce340b9d9e89e45f6510, type: 3}
+      - m_Target: {fileID: 7749346977082823265, guid: 5eebe94bc0303824d9e662af76311a40, type: 3}
         m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
         m_MethodName: LoadMainMenuScene
         m_Mode: 1

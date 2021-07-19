@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField]
-    Slider slider;   
-
-    [SerializeField]
     GameObject UIProgress;
 
     [SerializeField]

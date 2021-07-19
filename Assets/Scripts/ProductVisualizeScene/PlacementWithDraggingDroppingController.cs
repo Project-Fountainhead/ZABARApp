@@ -11,135 +11,78 @@ using UnityEngine.XR.ARFoundation;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlacementWithDraggingDroppingController : MonoBehaviour
 {
-    /*Responsibilities of DnD class:
-        1) Toggle detected plane            Removed
-        2) move model                       Removed
-        3) rotate model                     Removed
-        4) show progress bar                Removed
-        5) hide and show detected ground    Removed
-        6) show welcome panel and later hide it
-        7) Fetch and Initiate the 3d model      sole responsibility
-        */
-
-    //[SerializeField]
-    //private GameObject welcomePanel;
-
-    //[SerializeField]
-    //private Button dismissButton;    
+    // This class is responsible for instantiate the 3D model (when it has been download)
+    // on the position of Placement Indicator and then remove this indicator    
 
     //[SerializeField]
     private GameObject placedPrefab;
 
-    //[SerializeField]
     private GameObject placedObject;
+    public GameObject PlacedObject { get => placedObject; set => placedObject = value; }
 
     [SerializeField]
     private GameObject placementIndicator;
 
-    private PlacementIndicator plcIndicator;   
+    [SerializeField]
+    private ARRaycastManager rayManager;
 
     [SerializeField]
-    private Text debugText;
+    private Camera arCamera;
 
-    bool IsModelReceived = false;
+    //[SerializeField]
+    //private Text debugText;
+        
+    int ModelID = 0;
+
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    public static event Action onPlacedObject;
 
     void Awake()
     {
-        ProductManager.Instance.GetAssetBundle(ProductManager.Instance.ModelProductID);
-
-        plcIndicator = FindObjectOfType<PlacementIndicator>();
-
-        placedObject = GameObject.Find("GameObject");
-
-        //ProductManager.Instance.callbackModelEventHandler += new ProductManager.DelModelEventHandler(OnRequestComplete);
-
-         //dismissButton.onClick.AddListener(Dismiss);                     
+        ModelID = ProductManager.Instance.ModelProductID;
+        ProductManager.Instance.GetAssetBundle(ModelID);
+        ProductManager.Instance.GetProductDimensions(ModelID);
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-    }
-
-    //void Start()
-    //{
-    //    //ProductManager.Instance.GetAssetBundle(ButtonHandler.ProductID);
-        
-    //}
-
-    //private void OnDestroy()
-    //{
-    //    //ProductManager.Instance.callbackModelEventHandler -= new ProductManager.DelModelEventHandler(OnRequestComplete);
-    //}
-
-    //void OnRequestComplete(GameObject gameObject)
-    //{        
-    //    try
-    //    {
-    //        placedPrefab = gameObject;            
-    //    }
-    //    catch(Exception e)
-    //    {
-    //        //    debugText.text = "Exception occured: " + e.Message;
-    //        Debug.Log("Exception occured: " + e.Message);
-    //        return;
-    //    }
-    //    //debugText.text += "prefab loaded!";
-    //}
-
-    //private void Dismiss() => welcomePanel.SetActive(false);    
+    }   
 
     void Update()
     {
-        // do not capture events unless the welcome panel is hidden
-        //if (welcomePanel.activeSelf)
-        //    return;
+        if (!CacheManager.Instance.IsModelCached(ModelID) || placedObject != null)
+        {
+            return;
+        }
+        else
+        {
+            InstantiateModel();
+        }           
+    }
 
-        StartCoroutine(IsModelReady());
-
-        //if (ProductManager.Instance.ProductModel == null)
-        //{
-        //    return;
-        //}
-
-        //placedPrefab = ProductManager.Instance.ProductModel;
-
-        Touch touch;
+    private void InstantiateModel()
+    {
+        placedPrefab = CacheManager.Instance.GetProductModel(ModelID);
 
         if (Input.touchCount > 0)
         {
-            touch = Input.GetTouch(0);
+            Touch touch = Input.GetTouch(0);
 
-            if (placedPrefab != null && plcIndicator.IndicatorHitPlane && touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Began)
             {
-                InstantiateModel();
+                bool isOverUI = touch.position.IsPointOverUIObject();
 
-                //Once the model has been instantiated, then disable the component as it is no longer required
-                this.enabled = false;
-            }            
-        }        
-    }
-
-    IEnumerator IsModelReady()
-    {
-        if (!IsModelReceived)
-        {
-            ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(ProductManager.Instance.ModelProductID);
-
-            while (prodDetails.model == null)
-            {
-                yield return null;
+                if (!isOverUI && rayManager.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+                {
+                    Pose hitPose = hits[0].pose;
+                    placedObject = Instantiate(placedPrefab, placementIndicator.transform.position, placementIndicator.transform.rotation);
+                    ModelModel2 moveModel = placedObject.AddComponent<ModelModel2>();
+                    moveModel.ARCamera = arCamera;
+                    moveModel.RayManager = rayManager;
+                    placedObject.AddComponent<RotateModel>();
+                    Destroy(placementIndicator);
+                    onPlacedObject?.Invoke();
+                }
             }
-            
-            placedPrefab = prodDetails.model;
-            IsModelReceived = true;
-        }       
-    }
-
-    void InstantiateModel()
-    {       
-        placedObject = Instantiate(placedPrefab, plcIndicator.transform.position, plcIndicator.transform.rotation);
-        placedObject.AddComponent<MoveModel>();
-        placedObject.AddComponent<RotateModel>();
-        //placedObject.transform.SetParent(placementIndicator.transform);
-        plcIndicator.DisableIndicator();
-        plcIndicator.enabled = false;        
+        }
     }
 } 

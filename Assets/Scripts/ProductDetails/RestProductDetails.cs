@@ -70,6 +70,30 @@ namespace Assets.Scripts
             }
         }
 
+        public void GetProductDimensions(int ProductID)
+        {
+            StartCoroutine(webClient.HttpGet(APICall.EPRODUCTDIMENSIONS, ProductID, (a) => OnProductDimensionsReceived(a)));
+        }
+
+        private void OnProductDimensionsReceived(string response)
+        {
+            AWSProductDimensionResponse awsResponse = JsonUtility.FromJson<AWSProductDimensionResponse>(response);
+
+            AWSProductDimension[] items = awsResponse.Items;
+
+            if (items.Length > 0)
+            {
+                //Parse response into ProdDetails
+                ProductDimensions prodDimensions = new ProductDimensions(items[0]);
+
+                //Update Dictionary and class object
+                int ProductID = int.Parse(items[0].ID);
+                CacheManager.Instance.SetProductDimensions(ProductID, prodDimensions);                
+
+                //ProductManager.Instance.OnProductDetailsReceived(prodDetails);
+            }
+        }
+
         public void GetProductImage(int ProductID, ProdDetails prodDetails)
         {
             if (!string.IsNullOrEmpty(prodDetails.ImageURL))

@@ -57,4 +57,14 @@ public class ObjectHandler : MonoBehaviour
 
         obj.GetAssetBundle(productID);
     }
+
+    public void GetProductDimensions(int productID)
+    {
+        ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(productID);
+
+        if (prodDetails.prodDimensions == null)
+        {
+            restProductDetails.GetProductDimensions(productID);
+        }        
+    }
 }

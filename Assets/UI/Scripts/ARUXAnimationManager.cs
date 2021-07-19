@@ -151,7 +151,7 @@ public class ARUXAnimationManager : MonoBehaviour
     float m_TweenDuration;
 
     const string k_MoveDeviceText = "Move Device Slowly";
-    const string k_TapToPlaceText = "Tap to Place AR";
+    const string k_TapToPlaceText = "Tap to Place Object";
     //const string k_FindABodyText = "Find a Body to Track";
     //const string k_FindAFaceText = "Find a Face to Track";
     //const string k_FindClipText = "Find an Image to Track";

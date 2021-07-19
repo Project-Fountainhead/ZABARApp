@@ -105,5 +105,23 @@ namespace Assets.Scripts.Core
             ProdDetails prodDetails = productCache[ProductID];
             prodDetails.model = gameObject;
         }
+
+        public GameObject GetProductModel(int ProductID)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            return prodDetails.model;
+        }
+
+        public void SetProductDimensions(int ProductID, ProductDimensions prodDimensions)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            prodDetails.SetProductDimensions(prodDimensions);
+        }
+
+        public ProductDimensions GetProductDimensions(int ProductID)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            return prodDetails.GetProductDimensions();
+        }        
     }
 }

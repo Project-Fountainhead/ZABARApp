@@ -6,24 +6,14 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PlacementIndicator : MonoBehaviour
 {
-    private ARRaycastManager rayManager;   
-    
-    bool indicatorHitPlane;
-    public bool IndicatorHitPlane { get => indicatorHitPlane; set => indicatorHitPlane = value; }
-
     [SerializeField]
-    GameObject Indicator;
+    private ARRaycastManager rayManager;
+    
+    [SerializeField]
+    GameObject plane;
 
-    void Start ()
-    {
-        // get the components
-        rayManager = FindObjectOfType<ARRaycastManager>();
-        
-        IndicatorHitPlane = false;
-
-        //myRenderer = transform.GetComponentInChildren<Renderer>();
-        //Indicator.enabled = false;
-    }
+    GameObject planeIndicator;
+    public GameObject PlaneIndicator { get => planeIndicator; set => planeIndicator = value; }    
 
     void Update ()
     {
@@ -33,15 +23,15 @@ public class PlacementIndicator : MonoBehaviour
         // if we hit an AR plane surface, update the position and rotation
         if (hits.Count > 0)
         {
-            indicatorHitPlane = true;
-            transform.position = hits[0].pose.position;
-            transform.rotation = hits[0].pose.rotation;
-            Indicator.SetActive(true);
+            //if (planeIndicator == null)
+            //{
+            //    planeIndicator = Instantiate(plane, hits[0].pose.position, hits[0].pose.rotation);
+            //    planeIndicator.transform.SetParent(transform);
+            //}
+            //else
+            //{
+                transform.SetPositionAndRotation(hits[0].pose.position, hits[0].pose.rotation);
+            //}
         }
-    }
-    
-    public void DisableIndicator()
-    {
-        Indicator.SetActive(false);
-    }
+    }    
 }

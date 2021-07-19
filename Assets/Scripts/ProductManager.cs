@@ -36,6 +36,11 @@ namespace Assets.Scripts
         public void GetAssetBundle(int ProductID)
         {
             objHandler.GetAssetBundle(ProductID, true);            
-        }        
+        }
+
+        public void GetProductDimensions(int ProductID)
+        {
+            objHandler.GetProductDimensions(ProductID);
+        }
     }    
 }
