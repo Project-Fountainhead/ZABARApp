@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\LoadButtonImage.cs" />
     <Compile Include="Assets\Scripts\ProductVisualizeScene\ToggleDetectedPlanes.cs" />
     <Compile Include="Assets\Scripts\ShowDimension.cs" />
+    <Compile Include="Assets\Scripts\Core\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UI\Shaders\FeatheredPlaneShader.shader" />

@@ -15,8 +15,8 @@ public class ShowDimension : MonoBehaviour
     GameObject dimPrefab;
     GameObject DimObject;        
 
-    //[SerializeField]
-    //Text debugText;    
+    [SerializeField]
+    Text debugText;    
 
     bool show = false;
 
@@ -28,7 +28,14 @@ public class ShowDimension : MonoBehaviour
 
     private void ShowHideDimension()
     {
-        show = !show;        
+        show = !show;
+
+        ProductDimensions productDimensions = CacheManager.Instance.GetProductDimensions(ProductManager.Instance.ModelProductID);
+        if (productDimensions == null)
+        {
+            debugText.text = "dimensions not received";
+            return;
+        }
 
         if (show && DimObject == null)
         {
@@ -81,19 +88,19 @@ public class ShowDimension : MonoBehaviour
         GameObject txtObj1 = dimPrefab.transform.GetChild(3).gameObject;
         txtObj1.transform.position = new Vector3(txtObj1.transform.position.x, txtObj1.transform.position.y, size.z / 2);
         TMPro.TMP_Text txtDim = txtObj1.GetComponent<TMPro.TMP_Text>();
-        txtDim.text = productDimensions.Depth;
+        txtDim.text = productDimensions.Depth + " cm";
 
         //Set Height dimension text
         GameObject txtObj2 = dimPrefab.transform.GetChild(4).gameObject;
         txtObj2.transform.position = new Vector3(txtObj2.transform.position.x, centre.y + 0.4f, txtObj2.transform.position.z);
         TMPro.TMP_Text txtDim2 = txtObj2.GetComponent<TMPro.TMP_Text>();
-        txtDim2.text = productDimensions.Height;
+        txtDim2.text = productDimensions.Height + " cm";
 
         //Set Width dimension text
         GameObject txtObj3 = dimPrefab.transform.GetChild(5).gameObject;
         txtObj3.transform.position = new Vector3(size.x / 2 + 0.4f, txtObj3.transform.position.y, txtObj3.transform.position.z);
         TMPro.TMP_Text txtDim3 = txtObj3.GetComponent<TMPro.TMP_Text>();
-        txtDim3.text = productDimensions.Width;
+        txtDim3.text = productDimensions.Width + " cm";
 
         DimObject = Instantiate(dimPrefab, dimObjectPosition, modelRotation, model.transform);        
     }

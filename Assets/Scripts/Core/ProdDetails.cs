@@ -43,7 +43,8 @@ namespace Assets.Scripts.Core
             BundleURL = item.BundleURL;
             NameInBundle = item.NameInBundle;
             Price = item.Price;
-            prodDimensions = new ProductDimensions(item.Depth, item.Height, item.Width);
+            //prodDimensions = new ProductDimensions(item.Depth, item.Height, item.Width);
+            prodDimensions = null;
         }
 
         public ProdDetails()
@@ -63,6 +64,16 @@ namespace Assets.Scripts.Core
             this.ImageTexture = prodDetails.ImageTexture;
             this.Price = prodDetails.Price;
             this.prodDimensions = new ProductDimensions(prodDetails.prodDimensions);            
+        }
+
+        public void SetProductDimensions(ProductDimensions productDimensions)
+        {
+            this.prodDimensions = new ProductDimensions(productDimensions);
+        }
+
+        public ProductDimensions GetProductDimensions()
+        {
+            return prodDimensions;
         }
     }
 
@@ -86,6 +97,13 @@ namespace Assets.Scripts.Core
             Depth = productDimensions.Depth;
             Height = productDimensions.Height;
             Width = productDimensions.Width;
+        }
+
+        public ProductDimensions(AWSProductDimension awsProductDimension)
+        {
+            Depth = awsProductDimension.Depth;
+            Height = awsProductDimension.Height;
+            Width = awsProductDimension.Width;
         }
     }
 }

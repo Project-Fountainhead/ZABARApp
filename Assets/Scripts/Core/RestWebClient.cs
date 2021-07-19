@@ -13,7 +13,8 @@ namespace Assets.Scripts.Core
     public class RestWebClient : MonoBehaviour
     {        
         private string productDetailsURL = "https://lkz1ni34e9.execute-api.ap-southeast-1.amazonaws.com/test/myresource?";
-        
+        private string productDimensions = "https://sobtcolppf.execute-api.ap-southeast-1.amazonaws.com/test/myresource?";
+
         public IEnumerator HttpGet(string url, System.Action<UnityWebRequest> callback)
         {
             using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
@@ -33,7 +34,29 @@ namespace Assets.Scripts.Core
                     callback(webRequest);
                 }
             }
-        }       
+        }
+
+        public IEnumerator HttpGet(APICall apiCall, int ProductID, System.Action<string> callback)
+        {
+            string url = Helper.GetURLFromEnum(apiCall);
+            using (UnityWebRequest webRequest = UnityWebRequest.Get($"{url}ButtonID={ProductID}"))
+            {
+                yield return webRequest.SendWebRequest();
+
+                if (webRequest.isNetworkError)
+                {
+                    Debug.Log("StatusCode: " + webRequest.responseCode);
+                    Debug.Log("Error: " + webRequest.error);
+                }
+
+                if (webRequest.isDone)
+                {
+                    string data = System.Text.Encoding.UTF8.GetString(webRequest.downloadHandler.data);
+                    //Debug.Log("Data: " + data);                    
+                    callback(data);
+                }
+            }
+        }
 
         public IEnumerator HttpGet(int ProductID, System.Action<int, string> callback)
         {

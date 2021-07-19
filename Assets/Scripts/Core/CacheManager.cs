@@ -112,10 +112,16 @@ namespace Assets.Scripts.Core
             return prodDetails.model;
         }
 
+        public void SetProductDimensions(int ProductID, ProductDimensions prodDimensions)
+        {
+            ProdDetails prodDetails = productCache[ProductID];
+            prodDetails.SetProductDimensions(prodDimensions);
+        }
+
         public ProductDimensions GetProductDimensions(int ProductID)
         {
             ProdDetails prodDetails = productCache[ProductID];
-            return prodDetails.prodDimensions;
-        }
+            return prodDetails.GetProductDimensions();
+        }        
     }
 }

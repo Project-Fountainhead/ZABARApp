@@ -21,7 +21,14 @@ namespace Assets.Scripts
         //{
         //    ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(ProductID);
         //    ProductManager.Instance.OnProductDetailsReceived(prodDetails);
-        //}       
+        //}
+
+        public ProductDimensions GetProductDimensions(int ProductID)
+        {
+            ProdDetails prodDetails = CacheManager.Instance.GetProductDetails(ProductID);
+
+            return prodDetails.prodDimensions;            
+        }
 
         public void GetAssetBundle(int ProductID)
         {

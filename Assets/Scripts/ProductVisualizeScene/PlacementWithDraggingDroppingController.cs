@@ -41,8 +41,8 @@ public class PlacementWithDraggingDroppingController : MonoBehaviour
     void Awake()
     {
         ModelID = ProductManager.Instance.ModelProductID;
-
-        ProductManager.Instance.GetAssetBundle(ModelID);        
+        ProductManager.Instance.GetAssetBundle(ModelID);
+        ProductManager.Instance.GetProductDimensions(ModelID);
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }   
