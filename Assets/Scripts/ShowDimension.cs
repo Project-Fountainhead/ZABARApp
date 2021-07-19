@@ -20,13 +20,13 @@ public class ShowDimension : MonoBehaviour
 
     bool show = false;
 
-    void Awake()
-    {
-        Button btnDimension = GetComponent<Button>();
-        btnDimension.onClick.AddListener(ShowHideDimension);
-    }    
+    //void Awake()
+    //{
+    //    Button btnDimension = GetComponent<Button>();
+    //    btnDimension.onClick.AddListener(ShowHideDimension);
+    //}    
 
-    private void ShowHideDimension()
+    public void ShowHideProductDimension()
     {
         show = !show;
 
